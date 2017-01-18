@@ -15,37 +15,53 @@ Supported RFCs:
 
 ## Usage
 
-Here is a short example how to use this library.
+Here is a short example how to use this library, for a more complete program
+check `hexdns2text/hexdns2text.c`.
 
 ```c
-#include "config.h"
 #include "omg-dns/omg_dns.h"
 #include <stdio.h>
 
-static int label_callback(const omg_dns_label_t* label, void* context) {
-    ...
+struct context {
+    size_t num_rr;
+    size_t num_label;
+};
+
+static int label_callback(const omg_dns_label_t* label, void* vp) {
+    struct context* context = (struct context*)vp;
+
+    printf("  label %lu:\n", context->num_label++);
+    if (omg_dns_label_is_end(label))
+        printf("    end: yes\n");
+    else if (!omg_dns_label_is_complete(label))
+        printf("    incomplete: yes\n");
+    else if (omg_dns_label_have_offset(label))
+        printf("    offset: %d\n", omg_dns_label_offset(label));
+    else if (omg_dns_label_have_extension_bits(label))
+        printf("    extension_bits: %02x\n", omg_dns_label_extension_bits(label));
 
     return OMG_DNS_OK;
 }
 
-static int rr_callback(int ret, const omg_dns_rr_t* rr, void* context) {
-    ...
+static int rr_callback(int ret, const omg_dns_rr_t* rr, void* vp) {
+    struct context* context = (struct context*)vp;
+
+    printf("  rr %lu:\n", context->num_rr++);
+    printf("    question: %s\n", omg_dns_rr_is_question(rr) ? "yes" : "no");
+    if (omg_dns_rr_have_type(rr))
+        printf("    type: %u\n", omg_dns_rr_type(rr));
 
     return OMG_DNS_OK;
 }
 
 int main(void) {
     omg_dns_t dns = OMG_DNS_T_INIT;
-    uint8_t * data;
-    size_t length;
+    struct context context = { 0, 0 };
+    uint8_t packet[] = { ... raw dns packet as byte array ... };
 
-    ...
-    Read DNS packet and set data and length
-    ...
-
-    omg_dns_set_rr_callback(&dns, rr_callback, 0;
-    omg_dns_set_label_callback(&dns, label_callback, 0;
-    ret = omg_dns_parse(&dns, data, length);
+    omg_dns_set_rr_callback(&dns, rr_callback, (void*)&context);
+    omg_dns_set_label_callback(&dns, label_callback, (void*)&context);
+    omg_dns_parse(&dns, packet, sizeof(packet));
 
     if (omg_dns_have_id(&dns))
         printf("id: %u\n", omg_dns_id(&dns));
