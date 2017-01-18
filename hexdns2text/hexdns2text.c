@@ -1,6 +1,6 @@
 /*
  * Author Jerry Lundström <jerry@dns-oarc.net>
- * Copyright (c) 2016, OARC, Inc.
+ * Copyright (c) 2017, OARC, Inc.
  * All rights reserved.
  *
  * This file is part of omg-dns.
@@ -99,7 +99,7 @@ static void print_label(const omg_dns_label_t* label, const uint8_t* data, const
     }
 }
 
-int label_callback(const omg_dns_label_t* label, void* context) {
+static int label_callback(const omg_dns_label_t* label, void* context) {
     struct labels* labels = (struct labels*)context;
 
     if (labels->label_idx == NUM_LABELS)
