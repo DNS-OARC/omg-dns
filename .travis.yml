@@ -1,11 +1,18 @@
 language: c
 compiler:
-  - clang
   - gcc
-script:
-  - cd hexdns2text
-  - sh autogen.sh
-  - ./configure
-  - make
-  - ./hexdns2text -h
-  - make test
+before_install:
+  - sudo apt-get -qq update
+env:
+  global:
+   - secure: "BHaHwraHxPN5nXfTAKDDIkbHnzS2E4OpCla+FO6CjIxyFg12w1xx/5RsMZjHB5owAxim12j3P5Vg0G0B7B3zMjwyJLgWtIyfYndGo0HI5lhaUTv1v9WAUfPlI9ELuy0qUkIi9KaFQEd7pK6xkPvYiKVSF40/cuEXEzi+KUiObL6S8EU3vPiCmt6UBjxKRqbkl/CHPZlDhQEmuRUw5CY4sa9QLUfI3duA/My/VqzMPPzWVKQW6IF6S+nk+rE5Tov2hmNYcxXb+M6qxmCwmBZh/sQsfRVvXEPzgzC+oaAhk3e1fh0guOPVkfUB5YN4GX5yVLLI+cN9Q9xeQtpKCSxBygNpasPnOXuokiRnOJuLwehKdFbwwja6dbG/FJIFtmuoYGrvsdYlOWVVwcOqq+BT0YWr6wM7AR0vAE10XnY7rq+24m1s/ZtzRRZ5Dwb+5gIDD6snULOjqm0BCLjtrc50UwvC7StYb4iCMcrQRHggNnd3C8j2/N38qNMNhhbXZXdnG9Vj6K5whKYrB7UI14euWW1JH5mqfQsbA6ryNqfkCePlZv6yE6OvqQG3rCtFLxi2kEqEuz++OV4IM1Ontx3CwTqJnjmjnLuaA39xy0h6d0uT6y47yH4DaD/e1V/LLWEsVQkeN0a3FkkiKM83whNYChvKOemOqjaRZGbIVMP4QQU="
+addons:
+  coverity_scan:
+    project:
+      name: "DNS-OARC/omg-dns"
+      description: "Build submitted via Travis CI"
+    notification_email: lundstrom.jerry@gmail.com
+    build_command_prepend: "(cd hexdns2text && ./autogen.sh && ./configure && make clean)"
+    build_command: "./cov.sh"
+    branch_pattern: coverity_scan
+script: true
