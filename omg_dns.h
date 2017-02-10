@@ -286,6 +286,7 @@ size_t omg_dns_additionals(const omg_dns_t* dns);
 size_t omg_dns_padding_offset(const omg_dns_t* dns);
 size_t omg_dns_padding_length(const omg_dns_t* dns);
 
+int omg_dns_parse_header(omg_dns_t* dns, const uint8_t* buffer, size_t length);
 int omg_dns_parse(omg_dns_t* dns, const uint8_t* buffer, size_t length);
 int omg_dns_parse_rr(omg_dns_rr_t* rr, const uint8_t* buffer, size_t length);
 
