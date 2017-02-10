@@ -30,10 +30,6 @@
 #define omg_dns_assert(x)
 #endif
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #define OMG_DNS_VERSION_STR     "1.0.0"
 #define OMG_DNS_VERSION_MAJOR   1
 #define OMG_DNS_VERSION_MINOR   0
@@ -44,6 +40,15 @@ extern "C" {
 #define OMG_DNS_EINCOMP         2
 #define OMG_DNS_ENOMEM          3
 #define OMG_DNS_EOVERRUN        4
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+const char* omg_dns_version_str(void);
+int omg_dns_version_major(void);
+int omg_dns_version_minor(void);
+int omg_dns_version_patch(void);
 
 #define OMG_DNS_LABEL_T_INIT { \
     0, \
@@ -281,6 +286,7 @@ size_t omg_dns_additionals(const omg_dns_t* dns);
 size_t omg_dns_padding_offset(const omg_dns_t* dns);
 size_t omg_dns_padding_length(const omg_dns_t* dns);
 
+int omg_dns_parse_header(omg_dns_t* dns, const uint8_t* buffer, size_t length);
 int omg_dns_parse(omg_dns_t* dns, const uint8_t* buffer, size_t length);
 int omg_dns_parse_rr(omg_dns_rr_t* rr, const uint8_t* buffer, size_t length);
 

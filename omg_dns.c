@@ -593,8 +593,63 @@ inline size_t omg_dns_padding_length(const omg_dns_t* dns) {
  * Parsers
  */
 
+ int omg_dns_parse_header(omg_dns_t* dns, const uint8_t* buffer, size_t length) {
+     uint8_t byte;
+
+     if (!dns) {
+         return OMG_DNS_EINVAL;
+     }
+
+     need16(dns->id, buffer, length);
+     dns->bytes_parsed += 2;
+     dns->have_id = 1;
+
+     need8(byte, buffer, length);
+     dns->bytes_parsed += 1;
+     dns->qr = byte & (1 << 7) ? 1 : 0;
+     dns->opcode = ( byte >> 3 ) & 0xf;
+     dns->aa = byte & (1 << 2) ? 1 : 0;
+     dns->tc = byte & (1 << 1) ? 1 : 0;
+     dns->rd = byte & (1 << 0) ? 1 : 0;
+     dns->have_qr =
+         dns->have_opcode =
+         dns->have_aa =
+         dns->have_tc =
+         dns->have_rd = 1;
+
+     need8(byte, buffer, length);
+     dns->bytes_parsed += 1;
+     dns->ra = byte & (1 << 7) ? 1 : 0;
+     dns->z = byte & (1 << 6) ? 1 : 0;
+     dns->ad = byte & (1 << 5) ? 1 : 0;
+     dns->cd = byte & (1 << 4) ? 1 : 0;
+     dns->rcode = byte & 0xf;
+     dns->have_ra =
+         dns->have_z =
+         dns->have_ad =
+         dns->have_cd =
+         dns->have_rcode = 1;
+
+     need16(dns->qdcount, buffer, length);
+     dns->bytes_parsed += 2;
+     dns->have_qdcount = 1;
+
+     need16(dns->ancount, buffer, length);
+     dns->bytes_parsed += 2;
+     dns->have_ancount = 1;
+
+     need16(dns->nscount, buffer, length);
+     dns->bytes_parsed += 2;
+     dns->have_nscount = 1;
+
+     need16(dns->arcount, buffer, length);
+     dns->bytes_parsed += 2;
+     dns->have_arcount = 1;
+
+     return OMG_DNS_OK;
+}
+
 int omg_dns_parse(omg_dns_t* dns, const uint8_t* buffer, size_t length) {
-    uint8_t byte;
     size_t n;
     int ret;
 
@@ -602,51 +657,11 @@ int omg_dns_parse(omg_dns_t* dns, const uint8_t* buffer, size_t length) {
         return OMG_DNS_EINVAL;
     }
 
-    need16(dns->id, buffer, length);
-    dns->bytes_parsed += 2;
-    dns->have_id = 1;
-
-    need8(byte, buffer, length);
-    dns->bytes_parsed += 1;
-    dns->qr = byte & (1 << 7) ? 1 : 0;
-    dns->opcode = ( byte >> 3 ) & 0xf;
-    dns->aa = byte & (1 << 2) ? 1 : 0;
-    dns->tc = byte & (1 << 1) ? 1 : 0;
-    dns->rd = byte & (1 << 0) ? 1 : 0;
-    dns->have_qr =
-        dns->have_opcode =
-        dns->have_aa =
-        dns->have_tc =
-        dns->have_rd = 1;
-
-    need8(byte, buffer, length);
-    dns->bytes_parsed += 1;
-    dns->ra = byte & (1 << 7) ? 1 : 0;
-    dns->z = byte & (1 << 6) ? 1 : 0;
-    dns->ad = byte & (1 << 5) ? 1 : 0;
-    dns->cd = byte & (1 << 4) ? 1 : 0;
-    dns->rcode = byte & 0xf;
-    dns->have_ra =
-        dns->have_z =
-        dns->have_ad =
-        dns->have_cd =
-        dns->have_rcode = 1;
-
-    need16(dns->qdcount, buffer, length);
-    dns->bytes_parsed += 2;
-    dns->have_qdcount = 1;
-
-    need16(dns->ancount, buffer, length);
-    dns->bytes_parsed += 2;
-    dns->have_ancount = 1;
-
-    need16(dns->nscount, buffer, length);
-    dns->bytes_parsed += 2;
-    dns->have_nscount = 1;
-
-    need16(dns->arcount, buffer, length);
-    dns->bytes_parsed += 2;
-    dns->have_arcount = 1;
+    if ((ret = omg_dns_parse_header(dns, buffer, length)) != OMG_DNS_OK) {
+        return ret;
+    }
+    buffer += dns->bytes_parsed;
+    length -= dns->bytes_parsed;
 
     for (n = dns->qdcount; n; n--) {
         omg_dns_rr_t rr = OMG_DNS_RR_T_INIT;
