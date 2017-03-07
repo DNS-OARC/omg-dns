@@ -22,18 +22,16 @@ CLEANFILES = omg_dns.c omg_dns.h
 
 SUBDIRS = test
 
-AM_CFLAGS = -Wall -I$(srcdir)
+AM_CFLAGS = -Wall -I$(srcdir) -I$(top_srcdir)/../
 
 bin_PROGRAMS = hexdns2text
 
-hexdns2text_SOURCES = hexdns2text.c omg_dns.c omg_dns.h
-
-hexdns2text.c: omg_dns.h
+hexdns2text_SOURCES = hexdns2text.c omg_dns.c
 
 omg_dns.c: $(top_srcdir)/../omg_dns.c omg_dns.h
-	cp "$(top_srcdir)/../omg_dns.c" "$(srcdir)"
+	cp "$(top_srcdir)/../omg_dns.c" .
 
 omg_dns.h: $(top_srcdir)/../omg_dns.h
-	cp "$(top_srcdir)/../omg_dns.h" "$(srcdir)"
+	cp "$(top_srcdir)/../omg_dns.h" .
 
 test: check
