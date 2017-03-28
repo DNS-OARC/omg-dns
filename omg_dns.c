@@ -293,14 +293,12 @@ inline size_t omg_dns_rr_num_rdata_labels(const omg_dns_rr_t* rr) {
         case OMG_DNS_TYPE_TKEY:
         case OMG_DNS_TYPE_TSIG:
             return 1;
-            break;
 
         case OMG_DNS_TYPE_SOA:
         case OMG_DNS_TYPE_MINFO:
         case OMG_DNS_TYPE_RP:
         case OMG_DNS_TYPE_TALINK:
             return 2;
-            break;
 
         case OMG_DNS_TYPE_MX:
         case OMG_DNS_TYPE_AFSDB:
@@ -308,26 +306,24 @@ inline size_t omg_dns_rr_num_rdata_labels(const omg_dns_rr_t* rr) {
         case OMG_DNS_TYPE_KX:
         case OMG_DNS_TYPE_LP:
             return 1;
-            break;
 
         case OMG_DNS_TYPE_PX:
             return 2;
-            break;
 
         case OMG_DNS_TYPE_SIG:
         case OMG_DNS_TYPE_RRSIG:
             return 1;
-            break;
 
         case OMG_DNS_TYPE_SRV:
             return 1;
-            break;
 
         case OMG_DNS_TYPE_NAPTR:
             return 1;
-            break;
 
-        case OMG_DNS_TYPE_HIP: /* TODO */
+        case OMG_DNS_TYPE_HIP:
+            return 1;
+
+        default:
             break;
     }
 
@@ -911,7 +907,34 @@ int omg_dns_parse_rr(omg_dns_rr_t* rr, const uint8_t* buffer, size_t length) {
                 }
                 break;
 
-            case OMG_DNS_TYPE_HIP: /* TODO */
+            case OMG_DNS_TYPE_HIP:
+                {
+                    uint8_t hit_length;
+                    uint16_t pk_length;
+
+                    need8(hit_length, buffer, length);
+                    rr->bytes_parsed += 1;
+                    bytes_parsed += 1;
+
+                    advancexb(1, buffer, length);
+                    rr->bytes_parsed += 1;
+                    bytes_parsed += 1;
+
+                    need16(pk_length, buffer, length);
+                    rr->bytes_parsed += 2;
+                    bytes_parsed += 2;
+
+                    advancexb(hit_length, buffer, length);
+                    rr->bytes_parsed += hit_length;
+                    bytes_parsed += hit_length;
+
+                    advancexb(pk_length, buffer, length);
+                    rr->bytes_parsed += pk_length;
+                    bytes_parsed += pk_length;
+
+                    if (rr->bytes_parsed >= rr->rdlength)
+                        labels = 0;
+                }
                 break;
         }
 
@@ -938,6 +961,8 @@ int omg_dns_parse_rr(omg_dns_rr_t* rr, const uint8_t* buffer, size_t length) {
                 }
                 rr->rdata_labels++;
                 labels--;
+                if (rr->type == OMG_DNS_TYPE_HIP && rr->bytes_parsed < rr->rdlength)
+                    labels++;
                 continue;
             }
             else if (label.length & 0xc0) {
@@ -952,6 +977,8 @@ int omg_dns_parse_rr(omg_dns_rr_t* rr, const uint8_t* buffer, size_t length) {
                 }
                 rr->rdata_labels++;
                 labels--;
+                if (rr->type == OMG_DNS_TYPE_HIP && rr->bytes_parsed < rr->rdlength)
+                    labels++;
                 continue;
             }
             else if (label.length) {
@@ -981,6 +1008,8 @@ int omg_dns_parse_rr(omg_dns_rr_t* rr, const uint8_t* buffer, size_t length) {
                         return ret;
                 }
                 labels--;
+                if (rr->type == OMG_DNS_TYPE_HIP && rr->bytes_parsed < rr->rdlength)
+                    labels++;
                 continue;
             }
         }
@@ -1001,7 +1030,7 @@ int omg_dns_parse_rr(omg_dns_rr_t* rr, const uint8_t* buffer, size_t length) {
              * that and process valid data after the labels
              *
             rr->have_padding = 1;
-            */
+             */
         }
         else if (bytes_parsed > rr->rdlength) {
             return OMG_DNS_EOVERRUN;
