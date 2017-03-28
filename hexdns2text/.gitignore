@@ -22,3 +22,4 @@ test-driver
 test/test-suite.log
 test/test*.sh.log
 test/test*.sh.trs
+build/
