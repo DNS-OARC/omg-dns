@@ -1,0 +1,11 @@
+language: c
+compiler:
+  - clang
+  - gcc
+script:
+  - cd hexdns2text
+  - sh autogen.sh
+  - ./configure
+  - make
+  - ./hexdns2text -h
+  - make test

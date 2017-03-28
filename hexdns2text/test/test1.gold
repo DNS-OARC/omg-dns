@@ -1,0 +1,112 @@
+id: 20724
+  qr: 0
+  opcode: 0
+  aa: 0
+  tc: 0
+  rd: 1
+  ra: 0
+  z: 0
+  ad: 0
+  cd: 0
+  rcode: 0
+  qdcount: 1
+  ancount: 0
+  nscount: 0
+  arcount: 0
+  questions: 1
+  answers: 0
+  authorities: 0
+  additionals: 0
+  rr 0
+    labels: 2
+    label: google . com .
+    question: yes
+    type: 1
+    class: 1
+    complete: yes
+    ret: 0
+  complete: yes
+  ret: 0
+id: 20724
+  qr: 1
+  opcode: 0
+  aa: 0
+  tc: 0
+  rd: 1
+  ra: 1
+  z: 0
+  ad: 0
+  cd: 0
+  rcode: 0
+  qdcount: 1
+  ancount: 1
+  nscount: 0
+  arcount: 0
+  questions: 1
+  answers: 1
+  authorities: 0
+  additionals: 0
+  rr 0
+    labels: 2
+    label: google . com .
+    question: yes
+    type: 1
+    class: 1
+    complete: yes
+    ret: 0
+  rr 1
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 21
+    rdlength: 4
+    rdata: 0xacd916ae
+    complete: yes
+    ret: 0
+  complete: yes
+  ret: 0
+id: 28919
+  qr: 1
+  opcode: 0
+  aa: 0
+  tc: 0
+  rd: 1
+  ra: 1
+  z: 0
+  ad: 0
+  cd: 0
+  rcode: 0
+  qdcount: 1
+  ancount: 1
+  nscount: 0
+  arcount: 0
+  questions: 1
+  answers: 1
+  authorities: 0
+  additionals: 0
+  rr 0
+    labels: 2
+    label: google . com .
+    question: yes
+    type: 6
+    class: 1
+    complete: yes
+    ret: 0
+  rr 1
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 6
+    class: 1
+    ttl: 59
+    rdlength: 38
+    rdata: 0x036e7333c00c09646e732d61646d696ec00c08a155200000038400000384000007080000003c
+    rdata labels: 4
+    rdata label: ns3 . <offset> google . com .
+    rdata label: dns-admin . <offset> google . com .
+    complete: yes
+    ret: 0
+  complete: yes
+  ret: 0

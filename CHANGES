@@ -1,0 +1,16 @@
+2017-03-28 Jerry Lundström
+
+    Release 1.0.0
+
+    First release of OMG-DNS.
+
+    c280bef Touch up readme
+    b8b9f31 Implement HIP support
+    716a7fa Fix automake files to handle building in build dir
+    9ebe0b6 Split parsing of header and RRs
+    2de2d37 Moved C++ extern and add missing version functions declare
+    fcc79bf Make example code runnable
+    b144309 Update README and copyright date
+    759cba0 Update Travis/Coverity status badges
+    6082526 First implementation
+    a58c601 Initial commit

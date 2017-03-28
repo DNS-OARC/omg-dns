@@ -1,0 +1,1553 @@
+id: 1614
+  qr: 1
+  opcode: 0
+  aa: 0
+  tc: 0
+  rd: 1
+  ra: 1
+  z: 0
+  ad: 0
+  cd: 0
+  rcode: 0
+  qdcount: 1
+  ancount: 11
+  nscount: 4
+  arcount: 5
+  questions: 1
+  answers: 11
+  authorities: 4
+  additionals: 5
+  rr 0
+    labels: 2
+    label: google . com .
+    question: yes
+    type: 1
+    class: 1
+    complete: yes
+    ret: 0
+  rr 1
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xadc22986
+    complete: yes
+    ret: 0
+  rr 2
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xadc22987
+    complete: yes
+    ret: 0
+  rr 3
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xadc22988
+    complete: yes
+    ret: 0
+  rr 4
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xadc22989
+    complete: yes
+    ret: 0
+  rr 5
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xadc2298e
+    complete: yes
+    ret: 0
+  rr 6
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xadc22980
+    complete: yes
+    ret: 0
+  rr 7
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xadc22981
+    complete: yes
+    ret: 0
+  rr 8
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xadc22982
+    complete: yes
+    ret: 0
+  rr 9
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xadc22983
+    complete: yes
+    ret: 0
+  rr 10
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xadc22984
+    complete: yes
+    ret: 0
+  rr 11
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xadc22985
+    complete: yes
+    ret: 0
+  rr 12
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7331c00c
+    rdata labels: 2
+    rdata label: ns1 . <offset> google . com .
+    complete: yes
+    ret: 0
+  rr 13
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7332c00c
+    rdata labels: 2
+    rdata label: ns2 . <offset> google . com .
+    complete: yes
+    ret: 0
+  rr 14
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7333c00c
+    rdata labels: 2
+    rdata label: ns3 . <offset> google . com .
+    complete: yes
+    ret: 0
+  rr 15
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7334c00c
+    rdata labels: 2
+    rdata label: ns4 . <offset> google . com .
+    complete: yes
+    ret: 0
+  rr 16
+    labels: 1
+    label: <offset> ns1 . <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xd8ef200a
+    complete: yes
+    ret: 0
+  rr 17
+    labels: 1
+    label: <offset> ns2 . <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xd8ef220a
+    complete: yes
+    ret: 0
+  rr 18
+    labels: 1
+    label: <offset> ns3 . <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xd8ef240a
+    complete: yes
+    ret: 0
+  rr 19
+    labels: 1
+    label: <offset> ns4 . <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xd8ef260a
+    complete: yes
+    ret: 0
+  rr 20
+    labels: 0
+    question: no
+    type: 41
+    class: 1280
+    ttl: 5
+    rdlength: 0
+    rdata: 0x
+    complete: yes
+    ret: 0
+  complete: yes
+  ret: 0
+id: 28129
+  qr: 1
+  opcode: 0
+  aa: 0
+  tc: 0
+  rd: 1
+  ra: 1
+  z: 0
+  ad: 0
+  cd: 0
+  rcode: 0
+  qdcount: 1
+  ancount: 4
+  nscount: 10
+  arcount: 8
+  questions: 1
+  answers: 4
+  authorities: 10
+  additionals: 8
+  rr 0
+    labels: 2
+    label: amazon . com .
+    question: yes
+    type: 1
+    class: 1
+    complete: yes
+    ret: 0
+  rr 1
+    labels: 1
+    label: <offset> amazon . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x4815c2d4
+    complete: yes
+    ret: 0
+  rr 2
+    labels: 1
+    label: <offset> amazon . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x4815d7e8
+    complete: yes
+    ret: 0
+  rr 3
+    labels: 1
+    label: <offset> amazon . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xb02062a6
+    complete: yes
+    ret: 0
+  rr 4
+    labels: 1
+    label: <offset> amazon . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xcdfbf236
+    complete: yes
+    ret: 0
+  rr 5
+    labels: 1
+    label: <offset> amazon . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 20
+    rdata: 0x0570646e733408756c747261646e73036f726700
+    rdata labels: 3
+    rdata label: pdns4 . ultradns . org .
+    complete: yes
+    ret: 0
+  rr 6
+    labels: 1
+    label: <offset> amazon . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 21
+    rdata: 0x0570646e733508756c747261646e7304696e666f00
+    rdata labels: 3
+    rdata label: pdns5 . ultradns . info .
+    complete: yes
+    ret: 0
+  rr 7
+    labels: 1
+    label: <offset> amazon . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 22
+    rdata: 0x0570646e733608756c747261646e7302636f02756b00
+    rdata labels: 4
+    rdata label: pdns6 . ultradns . co . uk .
+    complete: yes
+    ret: 0
+  rr 8
+    labels: 1
+    label: <offset> amazon . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 20
+    rdata: 0x036e7331037033310664796e656374036e657400
+    rdata labels: 4
+    rdata label: ns1 . p31 . dynect . net .
+    complete: yes
+    ret: 0
+  rr 9
+    labels: 1
+    label: <offset> amazon . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7332c0cf
+    rdata labels: 2
+    rdata label: ns2 . <offset> p31 . dynect . net .
+    complete: yes
+    ret: 0
+  rr 10
+    labels: 1
+    label: <offset> amazon . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7333c0cf
+    rdata labels: 2
+    rdata label: ns3 . <offset> p31 . dynect . net .
+    complete: yes
+    ret: 0
+  rr 11
+    labels: 1
+    label: <offset> amazon . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7334c0cf
+    rdata labels: 2
+    rdata label: ns4 . <offset> p31 . dynect . net .
+    complete: yes
+    ret: 0
+  rr 12
+    labels: 1
+    label: <offset> amazon . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 17
+    rdata: 0x0570646e733108756c747261646e73c0da
+    rdata labels: 3
+    rdata label: pdns1 . ultradns . <offset> net .
+    complete: yes
+    ret: 0
+  rr 13
+    labels: 1
+    label: <offset> amazon . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 8
+    rdata: 0x0570646e7332c127
+    rdata labels: 2
+    rdata label: pdns2 . <offset> ultradns . <offset> net .
+    complete: yes
+    ret: 0
+  rr 14
+    labels: 1
+    label: <offset> amazon . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 8
+    rdata: 0x0570646e7333c06e
+    rdata labels: 2
+    rdata label: pdns3 . <offset> ultradns . org .
+    complete: yes
+    ret: 0
+  rr 15
+    labels: 1
+    label: <offset> ns1 . p31 . dynect . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xd04e461f
+    complete: yes
+    ret: 0
+  rr 16
+    labels: 1
+    label: <offset> ns2 . <offset> p31 . dynect . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xcc0dfa1f
+    complete: yes
+    ret: 0
+  rr 17
+    labels: 1
+    label: <offset> ns3 . <offset> p31 . dynect . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xd04e471f
+    complete: yes
+    ret: 0
+  rr 18
+    labels: 1
+    label: <offset> ns4 . <offset> p31 . dynect . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xcc0dfb1f
+    complete: yes
+    ret: 0
+  rr 19
+    labels: 1
+    label: <offset> pdns1 . ultradns . <offset> net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xcc4a6c01
+    complete: yes
+    ret: 0
+  rr 20
+    labels: 1
+    label: <offset> pdns1 . ultradns . <offset> net .
+    question: no
+    type: 28
+    class: 1
+    ttl: 5
+    rdlength: 16
+    rdata: 0x20010502f3ff00000000000000000001
+    complete: yes
+    ret: 0
+  rr 21
+    labels: 1
+    label: <offset> pdns2 . <offset> ultradns . <offset> net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xcc4a6d01
+    complete: yes
+    ret: 0
+  rr 22
+    labels: 1
+    label: <offset> pdns2 . <offset> ultradns . <offset> net .
+    question: no
+    type: 28
+    class: 1
+    ttl: 5
+    rdlength: 16
+    rdata: 0x261000a1101400000000000000000001
+    complete: yes
+    ret: 0
+  complete: yes
+  ret: 0
+id: 64557
+  qr: 1
+  opcode: 0
+  aa: 0
+  tc: 0
+  rd: 1
+  ra: 1
+  z: 0
+  ad: 0
+  cd: 0
+  rcode: 0
+  qdcount: 1
+  ancount: 3
+  nscount: 7
+  arcount: 8
+  questions: 1
+  answers: 3
+  authorities: 7
+  additionals: 8
+  rr 0
+    labels: 2
+    label: yahoo . com .
+    question: yes
+    type: 1
+    class: 1
+    complete: yes
+    ret: 0
+  rr 1
+    labels: 1
+    label: <offset> yahoo . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x628afd6d
+    complete: yes
+    ret: 0
+  rr 2
+    labels: 1
+    label: <offset> yahoo . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x628bb718
+    complete: yes
+    ret: 0
+  rr 3
+    labels: 1
+    label: <offset> yahoo . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xcebe242d
+    complete: yes
+    ret: 0
+  rr 4
+    labels: 1
+    label: <offset> yahoo . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7336c00c
+    rdata labels: 2
+    rdata label: ns6 . <offset> yahoo . com .
+    complete: yes
+    ret: 0
+  rr 5
+    labels: 1
+    label: <offset> yahoo . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7338c00c
+    rdata labels: 2
+    rdata label: ns8 . <offset> yahoo . com .
+    complete: yes
+    ret: 0
+  rr 6
+    labels: 1
+    label: <offset> yahoo . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7331c00c
+    rdata labels: 2
+    rdata label: ns1 . <offset> yahoo . com .
+    complete: yes
+    ret: 0
+  rr 7
+    labels: 1
+    label: <offset> yahoo . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7332c00c
+    rdata labels: 2
+    rdata label: ns2 . <offset> yahoo . com .
+    complete: yes
+    ret: 0
+  rr 8
+    labels: 1
+    label: <offset> yahoo . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7333c00c
+    rdata labels: 2
+    rdata label: ns3 . <offset> yahoo . com .
+    complete: yes
+    ret: 0
+  rr 9
+    labels: 1
+    label: <offset> yahoo . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7334c00c
+    rdata labels: 2
+    rdata label: ns4 . <offset> yahoo . com .
+    complete: yes
+    ret: 0
+  rr 10
+    labels: 1
+    label: <offset> yahoo . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7335c00c
+    rdata labels: 2
+    rdata label: ns5 . <offset> yahoo . com .
+    complete: yes
+    ret: 0
+  rr 11
+    labels: 1
+    label: <offset> ns1 . <offset> yahoo . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x44b48310
+    complete: yes
+    ret: 0
+  rr 12
+    labels: 1
+    label: <offset> ns2 . <offset> yahoo . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x448eff10
+    complete: yes
+    ret: 0
+  rr 13
+    labels: 1
+    label: <offset> ns3 . <offset> yahoo . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xcb54dd35
+    complete: yes
+    ret: 0
+  rr 14
+    labels: 1
+    label: <offset> ns4 . <offset> yahoo . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x628a0b9d
+    complete: yes
+    ret: 0
+  rr 15
+    labels: 1
+    label: <offset> ns5 . <offset> yahoo . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x77a0f77c
+    complete: yes
+    ret: 0
+  rr 16
+    labels: 1
+    label: <offset> ns6 . <offset> yahoo . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xca2bdfaa
+    complete: yes
+    ret: 0
+  rr 17
+    labels: 1
+    label: <offset> ns8 . <offset> yahoo . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xcaa56816
+    complete: yes
+    ret: 0
+  rr 18
+    labels: 0
+    question: no
+    type: 41
+    class: 1280
+    ttl: 5
+    rdlength: 0
+    rdata: 0x
+    complete: yes
+    ret: 0
+  complete: yes
+  ret: 0
+id: 62518
+  qr: 1
+  opcode: 0
+  aa: 0
+  tc: 0
+  rd: 1
+  ra: 1
+  z: 0
+  ad: 0
+  cd: 0
+  rcode: 0
+  qdcount: 1
+  ancount: 2
+  nscount: 5
+  arcount: 11
+  questions: 1
+  answers: 2
+  authorities: 5
+  additionals: 11
+  rr 0
+    labels: 2
+    label: microsoft . com .
+    question: yes
+    type: 1
+    class: 1
+    complete: yes
+    ret: 0
+  rr 1
+    labels: 1
+    label: <offset> microsoft . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x40040b25
+    complete: yes
+    ret: 0
+  rr 2
+    labels: 1
+    label: <offset> microsoft . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x41373ac9
+    complete: yes
+    ret: 0
+  rr 3
+    labels: 1
+    label: <offset> microsoft . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 14
+    rdata: 0x036e7331046d736674036e657400
+    rdata labels: 3
+    rdata label: ns1 . msft . net .
+    complete: yes
+    ret: 0
+  rr 4
+    labels: 1
+    label: <offset> microsoft . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7332c04f
+    rdata labels: 2
+    rdata label: ns2 . <offset> msft . net .
+    complete: yes
+    ret: 0
+  rr 5
+    labels: 1
+    label: <offset> microsoft . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7333c04f
+    rdata labels: 2
+    rdata label: ns3 . <offset> msft . net .
+    complete: yes
+    ret: 0
+  rr 6
+    labels: 1
+    label: <offset> microsoft . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7334c04f
+    rdata labels: 2
+    rdata label: ns4 . <offset> msft . net .
+    complete: yes
+    ret: 0
+  rr 7
+    labels: 1
+    label: <offset> microsoft . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7335c04f
+    rdata labels: 2
+    rdata label: ns5 . <offset> msft . net .
+    complete: yes
+    ret: 0
+  rr 8
+    labels: 1
+    label: <offset> ns1 . msft . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x4137253e
+    complete: yes
+    ret: 0
+  rr 9
+    labels: 1
+    label: <offset> ns1 . msft . net .
+    question: no
+    type: 28
+    class: 1
+    ttl: 5
+    rdlength: 16
+    rdata: 0x2a010111200500000000000000010001
+    complete: yes
+    ret: 0
+  rr 10
+    labels: 1
+    label: <offset> ns2 . <offset> msft . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x40043bad
+    complete: yes
+    ret: 0
+  rr 11
+    labels: 1
+    label: <offset> ns2 . <offset> msft . net .
+    question: no
+    type: 28
+    class: 1
+    ttl: 5
+    rdlength: 16
+    rdata: 0x2a010111200600060000000000010001
+    complete: yes
+    ret: 0
+  rr 12
+    labels: 1
+    label: <offset> ns3 . <offset> msft . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xd5c7b435
+    complete: yes
+    ret: 0
+  rr 13
+    labels: 1
+    label: <offset> ns3 . <offset> msft . net .
+    question: no
+    type: 28
+    class: 1
+    ttl: 5
+    rdlength: 16
+    rdata: 0x2a010111202000000000000000010001
+    complete: yes
+    ret: 0
+  rr 14
+    labels: 1
+    label: <offset> ns4 . <offset> msft . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xcf2e4bfe
+    complete: yes
+    ret: 0
+  rr 15
+    labels: 1
+    label: <offset> ns4 . <offset> msft . net .
+    question: no
+    type: 28
+    class: 1
+    ttl: 5
+    rdlength: 16
+    rdata: 0x2404f800200300000000000000010001
+    complete: yes
+    ret: 0
+  rr 16
+    labels: 1
+    label: <offset> ns5 . <offset> msft . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x4137e28c
+    complete: yes
+    ret: 0
+  rr 17
+    labels: 1
+    label: <offset> ns5 . <offset> msft . net .
+    question: no
+    type: 28
+    class: 1
+    ttl: 5
+    rdlength: 16
+    rdata: 0x2a010111200f00010000000000010001
+    complete: yes
+    ret: 0
+  rr 18
+    labels: 0
+    question: no
+    type: 41
+    class: 1280
+    ttl: 5
+    rdlength: 0
+    rdata: 0x
+    complete: yes
+    ret: 0
+  complete: yes
+  ret: 0
+id: 29259
+  qr: 1
+  opcode: 0
+  aa: 0
+  tc: 0
+  rd: 1
+  ra: 1
+  z: 0
+  ad: 0
+  cd: 0
+  rcode: 0
+  qdcount: 1
+  ancount: 5
+  nscount: 4
+  arcount: 11
+  questions: 1
+  answers: 5
+  authorities: 4
+  additionals: 11
+  rr 0
+    labels: 2
+    label: google . com .
+    question: yes
+    type: 15
+    class: 1
+    complete: yes
+    ret: 0
+  rr 1
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 15
+    class: 1
+    ttl: 5
+    rdlength: 12
+    rdata: 0x000a056173706d78016cc00c
+    rdata labels: 3
+    rdata label: aspmx . l . <offset> google . com .
+    complete: yes
+    ret: 0
+  rr 2
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 15
+    class: 1
+    ttl: 5
+    rdlength: 9
+    rdata: 0x001404616c7431c02a
+    rdata labels: 2
+    rdata label: alt1 . <offset> aspmx . l . <offset> google . com .
+    complete: yes
+    ret: 0
+  rr 3
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 15
+    class: 1
+    ttl: 5
+    rdlength: 9
+    rdata: 0x001e04616c7432c02a
+    rdata labels: 2
+    rdata label: alt2 . <offset> aspmx . l . <offset> google . com .
+    complete: yes
+    ret: 0
+  rr 4
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 15
+    class: 1
+    ttl: 5
+    rdlength: 9
+    rdata: 0x002804616c7433c02a
+    rdata labels: 2
+    rdata label: alt3 . <offset> aspmx . l . <offset> google . com .
+    complete: yes
+    ret: 0
+  rr 5
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 15
+    class: 1
+    ttl: 5
+    rdlength: 9
+    rdata: 0x003204616c7434c02a
+    rdata labels: 2
+    rdata label: alt4 . <offset> aspmx . l . <offset> google . com .
+    complete: yes
+    ret: 0
+  rr 6
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7332c00c
+    rdata labels: 2
+    rdata label: ns2 . <offset> google . com .
+    complete: yes
+    ret: 0
+  rr 7
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7333c00c
+    rdata labels: 2
+    rdata label: ns3 . <offset> google . com .
+    complete: yes
+    ret: 0
+  rr 8
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7334c00c
+    rdata labels: 2
+    rdata label: ns4 . <offset> google . com .
+    complete: yes
+    ret: 0
+  rr 9
+    labels: 1
+    label: <offset> google . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 6
+    rdata: 0x036e7331c00c
+    rdata labels: 2
+    rdata label: ns1 . <offset> google . com .
+    complete: yes
+    ret: 0
+  rr 10
+    labels: 1
+    label: <offset> aspmx . l . <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xadc2421b
+    complete: yes
+    ret: 0
+  rr 11
+    labels: 1
+    label: <offset> aspmx . l . <offset> google . com .
+    question: no
+    type: 28
+    class: 1
+    ttl: 5
+    rdlength: 16
+    rdata: 0x2a00145040080c01000000000000001b
+    complete: yes
+    ret: 0
+  rr 12
+    labels: 1
+    label: <offset> alt1 . <offset> aspmx . l . <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xadc2461b
+    complete: yes
+    ret: 0
+  rr 13
+    labels: 1
+    label: <offset> alt2 . <offset> aspmx . l . <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xadc2451b
+    complete: yes
+    ret: 0
+  rr 14
+    labels: 1
+    label: <offset> alt3 . <offset> aspmx . l . <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x4a7d8f1b
+    complete: yes
+    ret: 0
+  rr 15
+    labels: 1
+    label: <offset> alt4 . <offset> aspmx . l . <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x4a7d191b
+    complete: yes
+    ret: 0
+  rr 16
+    labels: 1
+    label: <offset> ns1 . <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xd8ef200a
+    complete: yes
+    ret: 0
+  rr 17
+    labels: 1
+    label: <offset> ns2 . <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xd8ef220a
+    complete: yes
+    ret: 0
+  rr 18
+    labels: 1
+    label: <offset> ns3 . <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xd8ef240a
+    complete: yes
+    ret: 0
+  rr 19
+    labels: 1
+    label: <offset> ns4 . <offset> google . com .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xd8ef260a
+    complete: yes
+    ret: 0
+  rr 20
+    labels: 0
+    question: no
+    type: 41
+    class: 1280
+    ttl: 5
+    rdlength: 0
+    rdata: 0x
+    complete: yes
+    ret: 0
+  complete: yes
+  ret: 0
+id: 4793
+  qr: 1
+  opcode: 0
+  aa: 0
+  tc: 0
+  rd: 1
+  ra: 1
+  z: 0
+  ad: 0
+  cd: 0
+  rcode: 0
+  qdcount: 1
+  ancount: 8
+  nscount: 0
+  arcount: 12
+  questions: 1
+  answers: 8
+  authorities: 0
+  additionals: 12
+  rr 0
+    labels: 2
+    label: reddit . com .
+    question: yes
+    type: 2
+    class: 1
+    complete: yes
+    ret: 0
+  rr 1
+    labels: 1
+    label: <offset> reddit . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 15
+    rdata: 0x046175733204616b616d036e657400
+    rdata labels: 3
+    rdata label: aus2 . akam . net .
+    complete: yes
+    ret: 0
+  rr 2
+    labels: 1
+    label: <offset> reddit . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 7
+    rdata: 0x0475736534c02d
+    rdata labels: 2
+    rdata label: use4 . <offset> akam . net .
+    complete: yes
+    ret: 0
+  rr 3
+    labels: 1
+    label: <offset> reddit . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 7
+    rdata: 0x0475737733c02d
+    rdata labels: 2
+    rdata label: usw3 . <offset> akam . net .
+    complete: yes
+    ret: 0
+  rr 4
+    labels: 1
+    label: <offset> reddit . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 7
+    rdata: 0x0475737735c02d
+    rdata labels: 2
+    rdata label: usw5 . <offset> akam . net .
+    complete: yes
+    ret: 0
+  rr 5
+    labels: 1
+    label: <offset> reddit . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 8
+    rdata: 0x056173696131c02d
+    rdata labels: 2
+    rdata label: asia1 . <offset> akam . net .
+    complete: yes
+    ret: 0
+  rr 6
+    labels: 1
+    label: <offset> reddit . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 8
+    rdata: 0x056173696139c02d
+    rdata labels: 2
+    rdata label: asia9 . <offset> akam . net .
+    complete: yes
+    ret: 0
+  rr 7
+    labels: 1
+    label: <offset> reddit . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 8
+    rdata: 0x056e73312d31c02d
+    rdata labels: 2
+    rdata label: ns1-1 . <offset> akam . net .
+    complete: yes
+    ret: 0
+  rr 8
+    labels: 1
+    label: <offset> reddit . com .
+    question: no
+    type: 2
+    class: 1
+    ttl: 5
+    rdlength: 10
+    rdata: 0x076e73312d313935c02d
+    rdata labels: 2
+    rdata label: ns1-195 . <offset> akam . net .
+    complete: yes
+    ret: 0
+  rr 9
+    labels: 1
+    label: <offset> aus2 . akam . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xc30a242e
+    complete: yes
+    ret: 0
+  rr 10
+    labels: 1
+    label: <offset> use4 . <offset> akam . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x451f1d39
+    complete: yes
+    ret: 0
+  rr 11
+    labels: 1
+    label: <offset> usw3 . <offset> akam . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x451f3bc7
+    complete: yes
+    ret: 0
+  rr 12
+    labels: 1
+    label: <offset> usw5 . <offset> akam . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x60073240
+    complete: yes
+    ret: 0
+  rr 13
+    labels: 1
+    label: <offset> asia1 . <offset> akam . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x6007fb81
+    complete: yes
+    ret: 0
+  rr 14
+    labels: 1
+    label: <offset> asia9 . <offset> akam . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0x7c283484
+    complete: yes
+    ret: 0
+  rr 15
+    labels: 1
+    label: <offset> asia9 . <offset> akam . net .
+    question: no
+    type: 28
+    class: 1
+    ttl: 5
+    rdlength: 16
+    rdata: 0x2a0226f0006700000000000000000064
+    complete: yes
+    ret: 0
+  rr 16
+    labels: 1
+    label: <offset> ns1-1 . <offset> akam . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xc16c5b01
+    complete: yes
+    ret: 0
+  rr 17
+    labels: 1
+    label: <offset> ns1-1 . <offset> akam . net .
+    question: no
+    type: 28
+    class: 1
+    ttl: 5
+    rdlength: 16
+    rdata: 0x26001401000200000000000000000001
+    complete: yes
+    ret: 0
+  rr 18
+    labels: 1
+    label: <offset> ns1-195 . <offset> akam . net .
+    question: no
+    type: 1
+    class: 1
+    ttl: 5
+    rdlength: 4
+    rdata: 0xc16c5bc3
+    complete: yes
+    ret: 0
+  rr 19
+    labels: 1
+    label: <offset> ns1-195 . <offset> akam . net .
+    question: no
+    type: 28
+    class: 1
+    ttl: 5
+    rdlength: 16
+    rdata: 0x260014010002000000000000000000c3
+    complete: yes
+    ret: 0
+  rr 20
+    labels: 0
+    question: no
+    type: 41
+    class: 1280
+    ttl: 5
+    rdlength: 0
+    rdata: 0x
+    complete: yes
+    ret: 0
+  complete: yes
+  ret: 0
