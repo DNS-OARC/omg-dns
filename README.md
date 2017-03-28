@@ -77,6 +77,13 @@ git submodule init
 git submodule add https://github.com/DNS-OARC/omg-dns.git src/omg-dns
 ```
 
+### Makefile.am
+
+```m4
+program_SOURCES += omg-dns/omg_dns.c
+dist_program_SOURCES += omg-dns/omg_dns.h
+```
+
 ## Author(s)
 
 Jerry Lundström <jerry@dns-oarc.net>
