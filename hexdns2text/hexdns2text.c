@@ -29,37 +29,37 @@
 
 #define NUM_LABELS 512
 struct labels {
-    uint8_t*            data;
-    size_t              label_idx;
-    omg_dns_label_t*    label;
+    uint8_t*         data;
+    size_t           label_idx;
+    omg_dns_label_t* label;
 };
 
 #define NUM_RRS 128
 struct rrs {
-    size_t          rr_idx;
-    omg_dns_rr_t*   rr;
-    int*            ret;
-    size_t*         label_idx;
-    struct labels*  labels;
+    size_t         rr_idx;
+    omg_dns_rr_t*  rr;
+    int*           ret;
+    size_t*        label_idx;
+    struct labels* labels;
 };
 
 static int print_labels = 0;
 
-static int hex2byte(char hex) {
+static int hex2byte(char hex)
+{
     if (hex >= '0' && hex <= '9') {
         return hex - '0';
-    }
-    else if (hex >= 'a' && hex <= 'f') {
+    } else if (hex >= 'a' && hex <= 'f') {
         return hex - 'a' + 10;
-    }
-    else if (hex >= 'A' && hex <= 'F') {
+    } else if (hex >= 'A' && hex <= 'F') {
         return hex - 'A' + 10;
     }
 
     return -1;
 }
 
-static void print_label(const omg_dns_label_t* label, const uint8_t* data, const char* prefix) {
+static void print_label(const omg_dns_label_t* label, const uint8_t* data, const char* prefix)
+{
     if (!label)
         return;
 
@@ -75,31 +75,28 @@ static void print_label(const omg_dns_label_t* label, const uint8_t* data, const
 
     if (omg_dns_label_have_offset(label)) {
         printf("%s  offset: %d\n", prefix ? prefix : "", omg_dns_label_offset(label));
-    }
-    else if (omg_dns_label_have_extension_bits(label)) {
+    } else if (omg_dns_label_have_extension_bits(label)) {
         printf("%s  extension_bits: %02x\n", prefix ? prefix : "", omg_dns_label_extension_bits(label));
-    }
-    else if (omg_dns_label_have_dn(label)) {
+    } else if (omg_dns_label_have_dn(label)) {
         if (data) {
-            const uint8_t* dn = data + omg_dns_label_dn_offset(label);
-            size_t dnlen = omg_dns_label_length(label);
+            const uint8_t* dn    = data + omg_dns_label_dn_offset(label);
+            size_t         dnlen = omg_dns_label_length(label);
 
             printf("%s  dn: ", prefix ? prefix : "");
             while (dnlen--) {
                 printf("%c", *dn++);
             }
             printf("\n");
-        }
-        else {
+        } else {
             printf("%s  dn: NO_DATA\n", prefix ? prefix : "");
         }
-    }
-    else {
+    } else {
         printf("%s  invalid: yes\n", prefix ? prefix : "");
     }
 }
 
-static int label_callback(const omg_dns_label_t* label, void* context) {
+static int label_callback(const omg_dns_label_t* label, void* context)
+{
     struct labels* labels = (struct labels*)context;
 
     if (labels->label_idx == NUM_LABELS)
@@ -111,7 +108,8 @@ static int label_callback(const omg_dns_label_t* label, void* context) {
     return OMG_DNS_OK;
 }
 
-static int rr_callback(int ret, const omg_dns_rr_t* rr, void* context) {
+static int rr_callback(int ret, const omg_dns_rr_t* rr, void* context)
+{
     struct rrs* rrs = (struct rrs*)context;
 
     if (rrs->rr_idx == NUM_RRS)
@@ -127,19 +125,20 @@ static int rr_callback(int ret, const omg_dns_rr_t* rr, void* context) {
     return OMG_DNS_OK;
 }
 
-static void parse(uint8_t* data, size_t len) {
-    omg_dns_t dns = OMG_DNS_T_INIT;
-    int ret;
-    struct rrs rrs = { 0, 0, 0 };
+static void parse(uint8_t* data, size_t len)
+{
+    omg_dns_t     dns = OMG_DNS_T_INIT;
+    int           ret;
+    struct rrs    rrs    = { 0, 0, 0 };
     struct labels labels = { 0, 0, 0 };
-    size_t n;
+    size_t        n;
 
-    rrs.rr = calloc(NUM_RRS, sizeof(omg_dns_rr_t));
-    rrs.ret = calloc(NUM_RRS, sizeof(int));
+    rrs.rr        = calloc(NUM_RRS, sizeof(omg_dns_rr_t));
+    rrs.ret       = calloc(NUM_RRS, sizeof(int));
     rrs.label_idx = calloc(NUM_RRS, sizeof(size_t));
-    rrs.labels = &labels;
+    rrs.labels    = &labels;
 
-    labels.data = data;
+    labels.data  = data;
     labels.label = calloc(NUM_LABELS, sizeof(omg_dns_label_t));
 
     omg_dns_set_rr_callback(&dns, rr_callback, (void*)&rrs);
@@ -189,7 +188,7 @@ static void parse(uint8_t* data, size_t len) {
 
     if (print_labels) {
         printf("  labels:\n");
-        for (n=0;n<labels.label_idx;n++) {
+        for (n = 0; n < labels.label_idx; n++) {
             print_label(&(labels.label[n]), data, "    ");
         }
     }
@@ -203,7 +202,7 @@ static void parse(uint8_t* data, size_t len) {
             printf("    labels: %lu\n", omg_dns_rr_labels(rr));
 
         if (omg_dns_rr_labels(rr)) {
-            size_t l = rrs.label_idx[n];
+            size_t l    = rrs.label_idx[n];
             size_t loop = 0;
 
             printf("    label:");
@@ -224,8 +223,7 @@ static void parse(uint8_t* data, size_t len) {
 
                     for (l2 = 0; l2 < labels.label_idx; l2++) {
                         if (omg_dns_label_have_dn(&(labels.label[l2]))
-                            && omg_dns_label_offset(&(labels.label[l2])) == omg_dns_label_offset(&(labels.label[l])))
-                        {
+                            && omg_dns_label_offset(&(labels.label[l2])) == omg_dns_label_offset(&(labels.label[l]))) {
                             l = l2;
                             break;
                         }
@@ -236,14 +234,12 @@ static void parse(uint8_t* data, size_t len) {
                     }
                     printf(" <offset missing>");
                     break;
-                }
-                else if (omg_dns_label_have_extension_bits(&(labels.label[l]))) {
+                } else if (omg_dns_label_have_extension_bits(&(labels.label[l]))) {
                     printf(" <extension>");
                     break;
-                }
-                else if (omg_dns_label_have_dn(&(labels.label[l]))) {
-                    uint8_t* dn = data + omg_dns_label_dn_offset(&(labels.label[l]));
-                    size_t dnlen = omg_dns_label_length(&(labels.label[l]));
+                } else if (omg_dns_label_have_dn(&(labels.label[l]))) {
+                    uint8_t* dn    = data + omg_dns_label_dn_offset(&(labels.label[l]));
+                    size_t   dnlen = omg_dns_label_length(&(labels.label[l]));
 
                     printf(" ");
                     while (dnlen--) {
@@ -251,8 +247,7 @@ static void parse(uint8_t* data, size_t len) {
                     }
                     printf(" .");
                     l++;
-                }
-                else {
+                } else {
                     printf("<invalid>");
                     break;
                 }
@@ -271,8 +266,8 @@ static void parse(uint8_t* data, size_t len) {
         if (omg_dns_rr_have_rdlength(rr))
             printf("    rdlength: %u\n", omg_dns_rr_rdlength(rr));
         if (omg_dns_rr_have_rdata(rr)) {
-            uint8_t* rdata = data + omg_dns_rr_rdata_offset(rr);
-            size_t rdatalen = omg_dns_rr_rdlength(rr);
+            uint8_t* rdata    = data + omg_dns_rr_rdata_offset(rr);
+            size_t   rdatalen = omg_dns_rr_rdlength(rr);
 
             printf("    rdata: 0x");
             while (rdatalen--) {
@@ -285,12 +280,12 @@ static void parse(uint8_t* data, size_t len) {
             printf("    rdata labels: %lu\n", omg_dns_rr_rdata_labels(rr));
 
         if (omg_dns_rr_rdata_labels(rr)) {
-            size_t rl = omg_dns_rr_num_rdata_labels(rr);
+            size_t rl   = omg_dns_rr_num_rdata_labels(rr);
             size_t last = 0;
 
             while (rl--) {
-                size_t l = rrs.label_idx[n] + omg_dns_rr_labels(rr) + last;
-                size_t loop = 0;
+                size_t         l      = rrs.label_idx[n] + omg_dns_rr_labels(rr) + last;
+                size_t         loop   = 0;
                 unsigned short jumped = 0;
 
                 printf("    rdata label:");
@@ -314,8 +309,7 @@ static void parse(uint8_t* data, size_t len) {
 
                         for (l2 = 0; l2 < labels.label_idx; l2++) {
                             if (omg_dns_label_have_dn(&(labels.label[l2]))
-                                && omg_dns_label_offset(&(labels.label[l2])) == omg_dns_label_offset(&(labels.label[l])))
-                            {
+                                && omg_dns_label_offset(&(labels.label[l2])) == omg_dns_label_offset(&(labels.label[l]))) {
                                 l = l2;
                                 break;
                             }
@@ -327,14 +321,12 @@ static void parse(uint8_t* data, size_t len) {
                         }
                         printf(" <offset missing>");
                         break;
-                    }
-                    else if (omg_dns_label_have_extension_bits(&(labels.label[l]))) {
+                    } else if (omg_dns_label_have_extension_bits(&(labels.label[l]))) {
                         printf(" <extension>");
                         break;
-                    }
-                    else if (omg_dns_label_have_dn(&(labels.label[l]))) {
-                        uint8_t* dn = data + omg_dns_label_dn_offset(&(labels.label[l]));
-                        size_t dnlen = omg_dns_label_length(&(labels.label[l]));
+                    } else if (omg_dns_label_have_dn(&(labels.label[l]))) {
+                        uint8_t* dn    = data + omg_dns_label_dn_offset(&(labels.label[l]));
+                        size_t   dnlen = omg_dns_label_length(&(labels.label[l]));
 
                         printf(" ");
                         while (dnlen--) {
@@ -342,8 +334,7 @@ static void parse(uint8_t* data, size_t len) {
                         }
                         printf(" .");
                         l++;
-                    }
-                    else {
+                    } else {
                         printf("<invalid>");
                         break;
                     }
@@ -353,8 +344,8 @@ static void parse(uint8_t* data, size_t len) {
         }
 
         if (omg_dns_rr_have_padding(rr)) {
-            uint8_t* pad = data + omg_dns_rr_padding_offset(rr);
-            size_t padlen = omg_dns_rr_padding_length(rr);
+            uint8_t* pad    = data + omg_dns_rr_padding_offset(rr);
+            size_t   padlen = omg_dns_rr_padding_length(rr);
 
             printf("    padding: 0x");
             while (padlen--) {
@@ -368,8 +359,8 @@ static void parse(uint8_t* data, size_t len) {
     }
 
     if (omg_dns_have_padding(&dns)) {
-        uint8_t* pad = data + omg_dns_padding_offset(&dns);
-        size_t padlen = omg_dns_padding_length(&dns);
+        uint8_t* pad    = data + omg_dns_padding_offset(&dns);
+        size_t   padlen = omg_dns_padding_length(&dns);
 
         printf("  padding: 0x");
         while (padlen--) {
@@ -387,34 +378,33 @@ static void parse(uint8_t* data, size_t len) {
     free(labels.label);
 }
 
-int main(int argc, char** argv) {
-    int opt, err = 0;
-    uint8_t dns[64*1024];
+int main(int argc, char** argv)
+{
+    int     opt, err = 0;
+    uint8_t dns[64 * 1024];
 
     while ((opt = getopt(argc, argv, "lhV")) != -1) {
         switch (opt) {
-            case 'l':
-                print_labels = 1;
-                break;
+        case 'l':
+            print_labels = 1;
+            break;
 
-            case 'h':
-                printf(
-"usage: hexdns2text [options] <dns packets in hex...>\n"
-" -l                 also print a list of all labels\n"
-" -V                 display version and exit\n"
-" -h                 this\n"
-                );
-                exit(0);
+        case 'h':
+            printf(
+                "usage: hexdns2text [options] <dns packets in hex...>\n"
+                " -l                 also print a list of all labels\n"
+                " -V                 display version and exit\n"
+                " -h                 this\n");
+            exit(0);
 
-            case 'V':
-                printf("hexdns2text version %s (omg_dns version %s)\n",
-                    PACKAGE_VERSION,
-                    OMG_DNS_VERSION_STR
-                );
-                exit(0);
+        case 'V':
+            printf("hexdns2text version %s (omg_dns version %s)\n",
+                PACKAGE_VERSION,
+                OMG_DNS_VERSION_STR);
+            exit(0);
 
-            default:
-                err = -1;
+        default:
+            err = -1;
         }
     }
 
@@ -428,10 +418,10 @@ int main(int argc, char** argv) {
     }
 
     while (optind < argc) {
-        size_t len = strlen(argv[optind]), n;
-        char* hex = argv[optind];
+        size_t   len  = strlen(argv[optind]), n;
+        char*    hex  = argv[optind];
         uint8_t* byte = dns;
-        int high, low;
+        int      high, low;
 
         if (len % 2) {
             fprintf(stderr, "Invalid HEX, odd number of characters\n");
@@ -465,7 +455,6 @@ int main(int argc, char** argv) {
 
         optind++;
     }
-
 
     return 0;
 }
