@@ -177,7 +177,7 @@ typedef int (*omg_dns_rr_callback_t)(int ret, const omg_dns_rr_t* rr, void* cont
 #define OMG_DNS_T_INIT { \
     0,0, 0,0, \
     0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0, 0,0,0,0, 0, \
-    0,0, \
+    0,0,0,0, \
     0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0 \
 }
 /* clang-format on */
@@ -216,6 +216,8 @@ struct omg_dns {
 
     unsigned short have_padding : 1;
 
+    unsigned short have_header : 1;
+    unsigned short have_body : 1;
     unsigned short is_complete : 1;
     size_t         bytes_parsed;
 
@@ -275,6 +277,8 @@ int omg_dns_have_answers(const omg_dns_t* dns);
 int omg_dns_have_authorities(const omg_dns_t* dns);
 int omg_dns_have_additionals(const omg_dns_t* dns);
 int omg_dns_have_padding(const omg_dns_t* dns);
+int omg_dns_have_header(const omg_dns_t* dns);
+int omg_dns_have_body(const omg_dns_t* dns);
 int omg_dns_is_complete(const omg_dns_t* dns);
 
 size_t omg_dns_bytes_parsed(const omg_dns_t* dns);
@@ -302,6 +306,7 @@ size_t omg_dns_padding_offset(const omg_dns_t* dns);
 size_t omg_dns_padding_length(const omg_dns_t* dns);
 
 int omg_dns_parse_header(omg_dns_t* dns, const uint8_t* buffer, size_t length);
+int omg_dns_parse_body(omg_dns_t* dns, const uint8_t* buffer, size_t length);
 int omg_dns_parse(omg_dns_t* dns, const uint8_t* buffer, size_t length);
 int omg_dns_parse_rr(omg_dns_rr_t* rr, const uint8_t* buffer, size_t length);
 
