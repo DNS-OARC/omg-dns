@@ -533,6 +533,18 @@ inline int omg_dns_have_padding(const omg_dns_t* dns)
     return dns->have_padding;
 }
 
+inline int omg_dns_have_header(const omg_dns_t* dns)
+{
+    omg_dns_assert(dns);
+    return dns->have_header;
+}
+
+inline int omg_dns_have_body(const omg_dns_t* dns)
+{
+    omg_dns_assert(dns);
+    return dns->have_body;
+}
+
 inline int omg_dns_is_complete(const omg_dns_t* dns)
 {
     omg_dns_assert(dns);
@@ -721,10 +733,12 @@ int omg_dns_parse_header(omg_dns_t* dns, const uint8_t* buffer, size_t length)
     dns->bytes_parsed += 2;
     dns->have_arcount = 1;
 
+    dns->have_header = 1;
+
     return OMG_DNS_OK;
 }
 
-int omg_dns_parse(omg_dns_t* dns, const uint8_t* buffer, size_t length)
+int omg_dns_parse_body(omg_dns_t* dns, const uint8_t* buffer, size_t length)
 {
     size_t n;
     int    ret;
@@ -732,12 +746,6 @@ int omg_dns_parse(omg_dns_t* dns, const uint8_t* buffer, size_t length)
     if (!dns) {
         return OMG_DNS_EINVAL;
     }
-
-    if ((ret = omg_dns_parse_header(dns, buffer, length)) != OMG_DNS_OK) {
-        return ret;
-    }
-    buffer += dns->bytes_parsed;
-    length -= dns->bytes_parsed;
 
     for (n = dns->qdcount; n; n--) {
         omg_dns_rr_t rr = OMG_DNS_RR_T_INIT;
@@ -824,6 +832,32 @@ int omg_dns_parse(omg_dns_t* dns, const uint8_t* buffer, size_t length)
         dns->padding_offset = dns->bytes_parsed;
         dns->padding_length = length;
         dns->have_padding   = 1;
+    }
+
+    dns->have_body = 1;
+
+    return OMG_DNS_OK;
+}
+
+int omg_dns_parse(omg_dns_t* dns, const uint8_t* buffer, size_t length)
+{
+    int ret;
+
+    if (!dns) {
+        return OMG_DNS_EINVAL;
+    }
+
+    if ((ret = omg_dns_parse_header(dns, buffer, length)) != OMG_DNS_OK) {
+        return ret;
+    }
+    if (length <= dns->bytes_parsed) {
+        return OMG_DNS_EINCOMP;
+    }
+    buffer += dns->bytes_parsed;
+    length -= dns->bytes_parsed;
+
+    if ((ret = omg_dns_parse_body(dns, buffer, length)) != OMG_DNS_OK) {
+        return ret;
     }
 
     dns->is_complete = 1;
