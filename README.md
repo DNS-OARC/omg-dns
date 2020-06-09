@@ -1,6 +1,6 @@
 # omg-dns
 
-[![Build Status](https://travis-ci.org/DNS-OARC/omg-dns.svg?branch=develop)](https://travis-ci.org/DNS-OARC/omg-dns) [![Coverity Scan Build Status](https://scan.coverity.com/projects/11504/badge.svg)](https://scan.coverity.com/projects/dns-oarc-omg-dns)
+[![Build Status](https://travis-ci.com/DNS-OARC/omg-dns.svg?branch=develop)](https://travis-ci.com/DNS-OARC/omg-dns)
 
 Helper library for parsing valid/invalid/broken/malformed DNS packets
 
