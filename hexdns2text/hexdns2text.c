@@ -408,10 +408,12 @@ int main(int argc, char** argv)
         }
     }
 
-    if (err == -2) {
+    /*
+    if (err == -2) { // lgtm [cpp/constant-comparison]
         fprintf(stderr, "Unsupported argument(s)\n");
         exit(1);
     }
+    */
     if (err == -1) {
         fprintf(stderr, "Invalid argument(s)\n");
         exit(1);
