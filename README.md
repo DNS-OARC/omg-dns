@@ -1,7 +1,5 @@
 # omg-dns
 
-[![Build Status](https://travis-ci.com/DNS-OARC/omg-dns.svg?branch=develop)](https://travis-ci.com/DNS-OARC/omg-dns)
-
 Helper library for parsing valid/invalid/broken/malformed DNS packets
 
 ## About
