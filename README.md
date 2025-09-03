@@ -72,7 +72,7 @@ int main(void) {
 
 ```shell
 git submodule init
-git submodule add https://github.com/DNS-OARC/omg-dns.git src/omg-dns
+git submodule add https://codeberg.org/DNS-OARC/omg-dns.git src/omg-dns
 ```
 
 ### Makefile.am
