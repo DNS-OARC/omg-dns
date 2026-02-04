@@ -1,3 +1,5 @@
+# NOTE: Moved to https://codeberg.org/DNS-OARC/omg-dns
+
 # omg-dns
 
 Helper library for parsing valid/invalid/broken/malformed DNS packets
